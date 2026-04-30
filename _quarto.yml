@@ -1,0 +1,147 @@
+# Command: quarto render your_notebook.ipynb --to html
+# Command for rendering plotly : quarto render your_notebook.ipynb --execute
+
+
+format:
+  html:
+    self-contained: true
+    toc: false
+    toc-location: left
+    number-sections: true
+    page-layout: full
+    highlight-style: atom-one
+    code-tools: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+    code-line-numbers: true
+    code-fold: true
+    code-overflow: scroll
+    code-summary: "Show the code"
+
+# # Code hidden format
+# format:
+#   html:
+#     self-contained: true
+#     toc: true
+#     toc-location: left
+#     page-layout: full
+#     highlight-style: atom-one
+#     code-tools: false
+#     code-block-bg: false
+#     code-fold: false
+#     echo: false
+
+include-in-header:
+  # - text: |
+  #     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  - text: |
+      <style>
+        /* Enable scrolling for long cell output */
+        pre, code, .sourceCode, .cell-code, .code-tools .sourceCode, .code-fold .sourceCode {
+          max-height: 400px;  /* Set max height before scrolling */
+          overflow: auto;  /* Enable vertical scrolling */
+          # border: 1px solid #ddd; /* Optional: add a border */
+          # padding: 8px;
+          # background-color: #f6f8fa; /* Light gray like Jupyter */
+          white-space: pre-wrap;
+          font-family: monospace;
+        }
+
+        /* Ensure table output inside cells can scroll */
+        div.output_area {
+          max-height: 400px;
+          overflow-y: auto;
+        }
+        
+        # pre:hover, .sourceCode:hover, .cell-code:hover {
+        #   overscroll-behavior: contain;
+      </style>
+
+  # - text: |
+  #     <style>
+  #       .code-fold {
+  #         position: relative;
+  #         border-radius: 8px;
+  #         background-color: #f8f8f8;
+  #         box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  #         padding: 0.5em 1em;
+  #         # margin-bottom: 1em;
+  #       }
+
+  #       summary.code-summary {
+  #         display: inline-block;
+  #         position: absolute;
+  #         top: 10px;
+  #         right: 12px;
+  #         background-color: #31BAE9;
+  #         color: white;
+  #         border: none;
+  #         border-radius: 6px;
+  #         # padding: 4px 12px;
+  #         font-size: 13px;
+  #         font-family: sans-serif;
+  #         cursor: pointer;
+  #         transition: background-color 0.3s ease;
+  #         box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  #       }
+
+  #       summary.code-summary:hover {
+  #         background-color: #199ac5;
+  #       }
+
+  #       pre.sourceCode, .cell-code, code {
+  #         background-color: transparent !important;
+  #         font-family: Consolas, Menlo, monospace;
+  #         font-size: 14px;
+  #         line-height: 1.5;
+  #       }
+  #     </style>
+
+  - text: |
+      <style>
+        /* Format table */
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          border-radius: 6px;
+          overflow: hidden;
+        }
+
+        /* Remove table borders */
+        table, th, td {
+          border: none;
+        }
+
+        /* Add zebra striping (alternating row colors) */
+        tbody tr:nth-child(odd) {
+          background-color: #f7f7f7; /* Light gray, like Jupyter */
+        }
+        
+        /* Keep table headers bold and slightly darker */
+        thead th {
+          background-color: #eaeaea;
+          font-weight: bold;
+          text-align: left;
+          padding: 8px;
+        }
+
+        /* Add padding to table cells */
+        td, th {
+          padding: 8px;
+          text-align: left;
+        }
+
+        /* Highlight row on hover */
+        tbody tr:hover {
+          # background-color: #e2e2e2 !important;
+          background-color: #dff6ff !important;  /* Light blue */
+        }
+
+        /* Make index column stand out (for DataFrames with an index) */
+        tbody tr td:first-child {
+          font-weight: bold;
+          color: #333;
+        }
+      </style>
